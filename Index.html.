@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reims RP 🇫🇷</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080d18;
+            color: white;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 7%;
+            background: rgba(5, 12, 25, 0.96);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 2px solid #173b73;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #e63946;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #e63946;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 35, 102, 0.35),
+                    rgba(255, 255, 255, 0.04),
+                    rgba(218, 41, 28, 0.35)
+                ),
+                radial-gradient(
+                    circle at center,
+                    #142f5c 0%,
+                    #080d18 60%
+                );
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .flag {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 .blue {
+            color: #2472d8;
+        }
+
+        .hero h1 .red {
+            color: #e63946;
+        }
+
+        .hero p {
+            color: #d4d9e2;
+            font-size: 19px;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            margin: 7px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #e63946;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #bd2633;
+            transform: translateY(-3px);
+        }
+
+        .secondary {
+            border: 1px solid #2472d8;
+            color: white;
+            background: rgba(36, 114, 216, 0.08);
+        }
+
+        .secondary:hover {
+            background: #2472d8;
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title h2 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #9fa8b8;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            background: #0e1625;
+            border: 1px solid #203452;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #2472d8;
+            box-shadow: 0 10px 30px rgba(36, 114, 216, 0.15);
+        }
+
+        .card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #aeb7c5;
+            line-height: 1.5;
+        }
+
+        /* STATS */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .stat {
+            text-align: center;
+            background: #0e1625;
+            border: 1px solid #203452;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 35px;
+            color: #ffffff;
+        }
+
+        .stat span {
+            color: #9fa8b8;
+        }
+
+        /* VIP */
+
+        .vip {
+            max-width: 450px;
+            margin: auto;
+            background:
+                linear-gradient(
+                    145deg,
+                    #111d32,
+                    #0b101a
+                );
+            border: 2px solid #e63946;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 0 35px rgba(230, 57, 70, 0.15);
+        }
+
+        .vip h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 45px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 15px 0 25px;
+        }
+
+        .vip ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .vip li {
+            margin: 12px 0;
+            color: #d0d6df;
+        }
+
+        /* RECRUTEMENT */
+
+        .recruitment {
+            max-width: 850px;
+            margin: auto;
+            background: #0e1625;
+            border: 1px solid #203452;
+            border-radius: 18px;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .recruitment p {
+            color: #b4bdca;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* REGLEMENT */
+
+        .rules {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .rule {
+            background: #0e1625;
+            border: 1px solid #203452;
+            padding: 20px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .rule:hover {
+            border-color: #e63946;
+        }
+
+        .rule strong {
+            color: #2472d8;
+        }
+
+        .rule p {
+            margin-top: 7px;
+            color: #b5bdc9;
+        }
+
+        /* SUPPORT */
+
+        .support {
+            text-align: center;
+        }
+
+        .support p {
+            color: #aeb7c5;
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            background: #050910;
+            border-top: 2px solid #173b73;
+            color: #777f8c;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        footer .red {
+            color: #e63946;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .flag {
+                font-size: 45px;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+            .title h2 {
+                font-size: 29px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .vip {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">
+            🇫🇷 REIMS <span>RP</span>
+        </div>
+
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#serveur">Serveur</a></li>
+            <li><a href="#boutique">Boutique</a></li>
+            <li><a href="#recrutement">Recrutement</a></li>
+            <li><a href="#reglement">Règlement</a></li>
+            <li><a href="#support">Support</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- ACCUEIL -->
+
+    <section class="hero" id="accueil">
+
+        <div class="hero-content">
+
+            <div class="flag">🇫🇷</div>
+
+            <h1>
+                <span class="blue">REIMS</span>
+                <span class="red">RP</span>
+            </h1>
+
+            <p>
+                Bienvenue sur Reims RP, un serveur français
+                basé sur un RP sérieux, réaliste et immersif.
+                Rejoins notre communauté et crée ton histoire.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    class="btn primary"
+                    href="https://discord.gg/xKsJAY4xr"
+                    target="_blank">
+                    💬 Rejoindre Discord
+                </a>
+
+                <a
+                    class="btn secondary"
+                    href="#serveur">
+                    🎮 Découvrir le serveur
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVEUR -->
+
+    <section id="serveur">
+
+        <div class="title">
+
+            <h2>🇫🇷 Pourquoi Reims RP ?</h2>
+
+            <p>
+                Une communauté française qui évolue avec ses joueurs.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">🚓</div>
+
+                <h3>RP immersif</h3>
+
+                <p>
+                    Des scènes RP sérieuses et réalistes
+                    pour une expérience immersive.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">👥</div>
+
+                <h3>Communauté</h3>
+
+                <p>
+                    Rejoins une communauté française
+                    et participe à la vie du serveur.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🛡️</div>
+
+                <h3>Staff actif</h3>
+
+                <p>
+                    Une équipe disponible pour aider
+                    les joueurs et gérer le serveur.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section>
+
+        <div class="title">
+
+            <h2>📊 Reims RP en quelques chiffres</h2>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>🇫🇷</strong>
+                <span>Serveur français</span>
+            </div>
+
+            <div class="stat">
+                <strong>24/7</strong>
+                <span>Communauté disponible</span>
+            </div>
+
+            <div class="stat">
+                <strong>🎮</strong>
+                <span>RP communautaire</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BOUTIQUE -->
+
+    <section id="boutique">
+
+        <div class="title">
+
+            <h2>👑 Boutique</h2>
+
+            <p>
+                Découvrez nos avantages VIP.
+            </p>
+
+        </div>
+
+        <div class="vip">
+
+            <h3>👑 VIP Permanent</h3>
+
+            <div class="price">5€</div>
+
+            <ul>
+                <li>✅ Rôle VIP Discord</li>
+                <li>✅ Accès aux salons VIP</li>
+                <li>✅ Badge VIP</li>
+                <li>✅ Avantages exclusifs</li>
+                <li>✅ Événements VIP</li>
+            </ul>
+
+            <a
+                class="btn primary"
+                href="https://discord.gg/xKsJAY4xr"
+                target="_blank">
+                🛒 Acheter le VIP
+            </a>
+
+            <p style="margin-top:15px;color:#777;">
+                Pour acheter le VIP, ouvrez un ticket sur notre Discord.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECRUTEMENT -->
+
+    <section id="recrutement">
+
+        <div class="title">
+
+            <h2>👥 Recrutement</h2>
+
+            <p>
+                Envie de rejoindre l'équipe de Reims RP ?
+            </p>
+
+        </div>
+
+        <div class="recruitment">
+
+            <p>
+                Nous recherchons régulièrement des membres motivés
+                pour participer au développement de Reims RP.
+            </p>
+
+            <p>
+                Des places peuvent être disponibles dans le staff
+                selon les besoins du serveur.
+            </p>
+
+            <a
+                class="btn primary"
+                href="https://discord.gg/xKsJAY4xr"
+                target="_blank">
+                📩 Candidater sur Discord
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- REGLEMENT -->
+
+    <section id="reglement">
+
+        <div class="title">
+
+            <h2>📜 Règlement</h2>
+
+            <p>
+                Les règles essentielles de Reims RP.
+            </p>
+
+        </div>
+
+        <div class="rules">
+
+            <div class="rule">
+
+                <strong>01 — Respect</strong>
+
+                <p>
+                    Le respect des joueurs et du staff est obligatoire.
+                </p>
+
+            </div>
+
+
+            <div class="rule">
+
+                <strong>02 — FreeKill / FreeShoot</strong>
+
+                <p>
+                    Les actions sans raison RP valable sont interdites.
+                </p>
+
+            </div>
+
+
+            <div class="rule">
+
+                <strong>03 — MetaGaming</strong>
+
+                <p>
+                    L'utilisation d'informations obtenues hors RP
+                    est interdite.
+                </p>
+
+            </div>
+
+
+            <div class="rule">
+
+                <strong>04 — PowerGaming</strong>
+
+                <p>
+                    Les actions irréalistes ou impossibles
+                    dans le cadre du RP sont interdites.
+                </p>
+
+            </div>
+
+
+            <div class="rule">
+
+                <strong>05 — No Fear RP</strong>
+
+                <p>
+                    Votre personnage doit prendre en compte
+                    les situations dangereuses et leurs conséquences.
+                </p>
+
+            </div>
+
+
+            <div class="rule">
+
+                <strong>06 — Staff</strong>
+
+                <p>
+                    Les décisions du staff doivent être respectées.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUPPORT -->
+
+    <section id="support">
+
+        <div class="title">
+
+            <h2>🎫 Support</h2>
+
+            <p>
+                Une question, un problème ou une demande ?
+                Notre équipe est disponible sur Discord.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    class="btn primary"
+                    href="https://discord.gg/xKsJAY4xr"
+                    target="_blank">
+                    🎫 Ouvrir un ticket
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 <strong>Reims <span class="red">RP</span></strong>
+            — Tous droits réservés.
+        </p>
+
+        <p style="margin-top:8px;">
+            🇫🇷 Serveur communautaire indépendant.
+        </p>
+
+    </footer>
+
+</body>
+</html>
